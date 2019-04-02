@@ -6,6 +6,7 @@ namespace Assets
     {
         [SerializeField] private float m_MoveSpeed;
         [SerializeField] private float m_RotationSpeed;
+        [SerializeField] private GameObject m_SolarPanel;
 
 
         private Rigidbody2D m_RB;
@@ -29,10 +30,11 @@ namespace Assets
             Quaternion l_NewRotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 90.0f * Input.GetAxis("Vertical")),
                 m_RotationSpeed * l_DeltaTime);
 
-            Debug.Log(transform.rotation + " " + l_NewRotation);
+            //Debug.Log(transform.rotation + " " + l_NewRotation);
+
 
             m_RB.MovePosition((Vector2)transform.position + l_NewPosition);
-            transform.rotation = l_NewRotation;
+            m_SolarPanel.transform.rotation = l_NewRotation;
 
 
 
